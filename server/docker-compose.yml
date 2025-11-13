@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  discord-backend:
+    build: .
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped
+    networks:
+      - discord-network
+
+
+networks:
+  discord-network:
+    driver: bridge 
